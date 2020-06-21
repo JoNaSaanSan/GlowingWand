@@ -23,7 +23,7 @@ MPU6050 mpu(Wire);
 
 
 void setup() {
-  //MPU6050
+  //MPU6050 init
   Serial.begin(9600);
   Wire.begin();
   mpu.begin();
@@ -32,8 +32,7 @@ void setup() {
   mpu.calcGyroOffsets();
   Serial.println("Done!\n");
 
-  //LED STRIP
-  
+  //LED STRIP init
   strip.begin();
   strip.setBrightness(30);
   strip.show(); // Initialise all pixels to 'off'
@@ -77,15 +76,19 @@ void loop() {
 
   recordMPU();
 
- //----Gestenerkennung----------------------------------
-  classify();
- //---------------------------------
+/*
+ * Use classify to detect gestures which have been classified in the model.h file
+ */
+classify();
 
- //----Gestentrainieren-------------
- // printFeatures();
-  //--------------------
-  delay(2000);
+/*
+ * Use printFeatures to collect data. It will print n amount of samples - use serial monitor to copy 
+ * and paste the date recorded into a csv. file
+ */
+printFeatures();
 
+
+delay(2000);
 }
 
 
