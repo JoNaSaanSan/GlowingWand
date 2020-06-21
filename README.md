@@ -16,6 +16,7 @@ copy paste predict, compute kernel and classIdxToName (could be predictLabel -> 
 
 model can now be used - use classify to detect gestures
 
-*How to create csv. files*
+**How to create csv. files**
+
 comment out classify() 
 use printfeatures() to detect movement
